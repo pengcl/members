@@ -1,0 +1,16 @@
+<div class="weui-cell weui-cell_vcode">
+    <div class="weui-cell__hd">
+        <label class="weui-label">验证码</label>
+    </div>
+    <div class="weui-cell__bd">
+        <input name="activeCode" id="activeCode" ng-model="activeCode" ng-maxlength="4"
+               ng-minlength="4" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" class="weui-input"
+               placeholder="请输入验证码" required/>
+    </div>
+    <div class="weui-cell__ft">
+        <button type="button" ng-click="getActiveCode($event,appAuth.receiverMobile);" class="weui-vcode-btn"
+                ng-class="{true:'',false:'disabled'}[loginForm.receiverMobile.$valid && activeClass]"
+                ng-bind="activeText">获取验证码
+        </button>
+    </div>
+</div>

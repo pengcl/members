@@ -1,0 +1,39 @@
+<div class="page login">
+    <app-nav nav-item='{"menu":false,"back":false,"share":false,"comment":false,"class":"black","title":"用户登录"}'></app-nav>
+    <div class="big-image" style="background:#aaa">
+        <h1 class="title" style="width:50%" ng-if="appAuth.isWeiXin">
+            <img ng-src="{{appAuth.weiXinData.headimgurl}}">
+            <span>{{appAuth.weiXinData.nickname}}，上午好！</span>
+        </h1>
+        <h1 class="title" style="width:50%" ng-if="!appAuth.isWeiXin">
+            <img ng-src="/templates/fenxiao/pages/member/public/images/qrcode.jpg">
+            <span>扫描二维码，关注翼分期！</span>
+        </h1>
+    </div>
+
+    <form name="loginForm" ng-submit="login(appAuth.receiverMobile,activeCode)">
+        <div class="attribution-title js-show-nothing">
+            <div ng-if="appAuth.isWeiXin">
+                <h1 class="title">绑定微信号</h1>
+                <span class="source">绑定微信号可以在公众号查询订单、账号信息</span>
+            </div>
+            <div ng-if="!appAuth.isWeiXin">
+                <h1 class="title">用户登录</h1>
+                <span class="source">请输入手机号和验证码登录用户中心！</span>
+            </div>
+            <div class="metadata-wrapper">
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><label class="weui-label">手机号</label></div>
+                        <div class="weui-cell__bd">
+                            <input name="receiverMobile" id="receiverMobile" ng-model="appAuth.receiverMobile" ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input" placeholder="请输入您的手机号" required />
+                        </div>
+                        <div class="weui-cell__ft"><i class="weui-icon-warn"></i></div>
+                    </div>
+                    <app-active-code></app-active-code>
+                </div>
+            </div>
+            <button type="submit" ng-disabled="loginForm.$invalid" class="btn-primary">提交</button>
+        </div>
+    </form>
+</div>

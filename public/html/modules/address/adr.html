@@ -1,0 +1,10 @@
+<div class="weui-cell" ng-click="setPickerShow()">
+    <input type="hidden" id="receiverProvince" name="receiverProvince" ng-model="userInfo.address.province" required>
+    <input type="hidden" id="receiverCity" name="receiverCity" ng-model="userInfo.address.city" required>
+    <input type="hidden" id="receiverDistrict" name="receiverDistrict" ng-model="userInfo.address.district" required>
+    <div class="weui-cell__hd"><label class="weui-label">所在地区</label></div>
+    <div class="weui-cell__bd">
+        <input id="receiverAddress" name="receiverAddress" class="input-address weui-input"
+               placeholder="请选择您的所在区域" ng-model="receiverAddress" required>
+    </div>
+</div>

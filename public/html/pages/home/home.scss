@@ -1,0 +1,28 @@
+.order-status {
+  .weui-grids {
+    &:after {
+      display: none;
+    }
+  }
+  .weui-grid {
+    width: 20%;
+    position: relative;
+    &:before, &:after {
+      display: none;
+    }
+    .weui-badge {
+      position: absolute;
+      right: 0.05rem;
+      top: 0.1rem;
+    }
+  }
+  .weui-grid__icon {
+    /*color: #0bb20c;*/
+    text-align: center;
+    /*@include border-radius(10rem);
+    border: 2px solid #0bb20c;*/
+    i {
+      line-height: 0.28rem;
+    }
+  }
+}

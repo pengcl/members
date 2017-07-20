@@ -1,0 +1,58 @@
+@import "../../base/fn";
+
+.weui-agree{
+    display: block;
+    padding: .5em 0.15rem;
+    font-size :0.13rem;
+
+    a{
+        color: @weuiLinkColorDefault;
+    }
+}
+.weui-agree__text{
+    color: @weuiTextColorGray;
+}
+.weui-agree__checkbox{
+    appearance: none;
+    outline: 0;
+    font-size: 0;
+
+    border: 1px solid #D1D1D1;
+    background-color: #FFFFFF;
+    border-radius: 0.03rem;
+    width: 0.13rem;
+    height: 0.13rem;
+    position: relative;
+
+    vertical-align: 0;
+    top: 0.02rem;
+
+    &:checked{
+        &:before{
+            font-family: "weui";
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-align: center;
+            speak: none;
+            display: inline-block;
+            vertical-align: middle;
+            text-decoration: inherit;
+            content: "\EA08";
+            color: #09BB07;
+            font-size: 0.13rem;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-48%) scale(.73);
+        }
+    }
+    &:disabled{
+        background-color:#E1E1E1;
+        &:before{
+            color:#ADADAD;
+        }
+    }
+}

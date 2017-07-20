@@ -1,0 +1,22 @@
+.price-title {
+  position: relative;
+  padding-right: 30%;
+  .price {
+    position: absolute;
+    right: 0.15rem;
+    color: #d83e14;
+  }
+}
+
+.weui-panel {
+  .weui-media-box {
+    .del {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: #999;
+      font-size: 0.13rem;
+      padding: 0.03rem 0.06rem;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.owl-carousel {
+  font-size: 0;
+  background: #eaeaea;
+  .owl-controls {
+    position: absolute;
+    bottom:0.1rem;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    .owl-buttons {
+      display: none;
+    }
+  }
+}
+.carousel-item,.owl-item {
+  width: 100%;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}

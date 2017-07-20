@@ -1,0 +1,20 @@
+<nav class="nav {{navItem.class}}">
+    <div class="nav-group">
+        <span ng-if="navItem.back" class="nav-item js-back" ng-click="back()" href="javascript:;">
+            <span class="icon-arrow-left"></span>
+        </span>
+        <span ng-if="navItem.menu" class="nav-item" ng-click="state.menu.open(true)">
+            <span class="icon-menu"></span>
+        </span>
+    </div>
+
+    <div class="title-page">{{navItem.title}}
+        <span class="subtext-page"><!--{{subtext}}--></span>
+    </div>
+
+    <div class="nav-group right">
+        <span class="nav-item" ng-if="navItem.share" ng-click="share.open(true)"><span class="icon-share"></span></span>
+        <span class="nav-item" ng-if="navItem.comment" ng-click="getContact()"><span class="icon-comment"></span></span>
+        <a href="/html/pages/account/bill/bill.html" class="nav-item" ng-if="navItem.bill"><span class="icon-graph-line"></span></a>
+    </div>
+</nav>

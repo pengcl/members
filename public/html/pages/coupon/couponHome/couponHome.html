@@ -1,0 +1,30 @@
+<div class="page couponHome">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":false,"class":"","title":"优惠券"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <div class="weui-cells__title">我的优惠券</div>
+        <div class="weui-cells">
+
+            <a class="weui-cell weui-cell_access" ui-sref="couponList({isUsed: 0, isOverdue: 0})">
+                <div class="weui-cell__hd"><img ng-src="{{imgPath}}/appIcons/coupon/unused.png" alt="" style="width:0.2rem;margin-right:0.05rem;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>未使用</p>
+                </div>
+                <div class="weui-cell__ft"><span ng-bind="couponList.length - couponList.isUsedCount - couponList.isOverdueCount"></span>张</div>
+            </a>
+            <a class="weui-cell weui-cell_access" ui-sref="couponList({isUsed: 1, isOverdue: 0})">
+                <div class="weui-cell__hd"><img ng-src="{{imgPath}}/appIcons/coupon/used.png" alt="" style="width:0.2rem;margin-right:0.05rem;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>已使用</p>
+                </div>
+                <div class="weui-cell__ft"><span ng-bind="couponList.isUsedCount"></span>张</div>
+            </a>
+            <a class="weui-cell weui-cell_access" ui-sref="couponList({isUsed: 0, isOverdue: 1})">
+                <div class="weui-cell__hd"><img ng-src="{{imgPath}}/appIcons/coupon/overdue.png" alt="" style="width:0.2rem;margin-right:0.05rem;display:block"></div>
+                <div class="weui-cell__bd">
+                    <p>已过期</p>
+                </div>
+                <div class="weui-cell__ft"><span ng-bind="couponList.isOverdueCount"></span>张</div>
+            </a>
+        </div>
+    </div>
+</div>

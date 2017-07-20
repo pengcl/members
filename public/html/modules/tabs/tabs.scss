@@ -1,0 +1,13 @@
+.tabs {
+  text-align: center;
+  .weui-flex__item {
+    span {
+      &.weui-badge {
+        position: absolute;
+        top:-0.04rem;
+        left: 50%;
+        margin-left: 1em;
+      }
+    }
+  }
+}

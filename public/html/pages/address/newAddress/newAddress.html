@@ -1,0 +1,74 @@
+<div class="page address">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":false,"class":"","title":"管理收货地址"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <form name="newAddressForm">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell" ng-class="{'weui-cell_warn':newAddressForm.receiverName.$dirty== true && newAddressForm.receiverName.$valid == false,'weui-cell_success':newAddressForm.receiverName.$valid == true}">
+                    <div class="weui-cell__hd"><label class="weui-label">收货人</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" id="receiverName" name="receiverName" ng-model="userInfo.name" placeholder="表输入您的姓名" required>
+                    </div>
+                </div>
+                <div class="weui-cell" ng-class="{'weui-cell_warn':newAddressForm.receiverMobile.$dirty== true && newAddressForm.receiverMobile.$valid == false,'weui-cell_success':newAddressForm.receiverMobile.$valid == true}">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">手机号码</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input name="receiverMobile" id="receiverMobile" ng-model="userInfo.mobile"
+                               ng-maxlength="11" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11"
+                               class="weui-input" placeholder="请输入您的手机号" required/>
+                    </div>
+                </div>
+                <app-address></app-address>
+                <div class="weui-cell" ng-class="{'weui-cell_warn':newAddressForm.receiverRoom.$dirty== true && newAddressForm.receiverRoom.$valid == false,'weui-cell_success':newAddressForm.receiverRoom.$valid == true}">
+                    <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" value="" id="receiverRoom" name="receiverRoom" ng-model="userInfo.address.room" placeholder="请输入详细地址" required>
+                    </div>
+                </div>
+                <div class="weui-cell weui-cell_switch">
+                    <div class="weui-cell__bd">设为默认地址</div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-switch" ng-model="userInfo.address.isDefault" type="checkbox">
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <div class="weui-uploader">
+                            <div class="weui-uploader__hd">
+                                <p class="weui-uploader__title">上传证件</p>
+                                <div class="weui-uploader__info">0/3</div>
+                            </div>
+                            <div class="weui-uploader__bd">
+                                <ul class="weui-uploader__files" id="uploaderFiles">
+                                    <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(/templates/fenxiao/pages/member/public/images/pic_160.png)">
+                                        <div class="weui-uploader__file-content">
+                                            <i class="weui-icon-warn"></i>
+                                        </div>
+                                    </li>
+                                    <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(/templates/fenxiao/pages/member/public/images/pic_160.png)">
+                                        <div class="weui-uploader__file-content">50%</div>
+                                    </li>
+                                </ul>
+                                <div class="weui-uploader__input-box">
+                                    <input id="uploaderInput" class="weui-uploader__input" accept="image/*" multiple="" type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" ng-class="{'disabled':newAddressForm.$invalid}" ng-disabled="newAddressForm.$invalid" href="javascript:;" ng-click="saveUser(newAddressForm.$valid)">
+                    <div class="weui-cell__bd">
+                        <p style="text-align: center">确定</p>
+                    </div>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

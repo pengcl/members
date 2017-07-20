@@ -1,0 +1,63 @@
+.page.market {
+  &.flow {
+    #rechargeNo {
+      &:after {
+        left: 0.15rem;
+        right: 0.15rem;
+      }
+      .weui-cell {
+        &:nth-child(1) {
+          &:after {
+            display: none;
+          }
+        }
+        &:nth-child(2) {
+          font-size: 0.12rem;
+          padding-top: 0;
+          color: #09bb07;
+          &:before {
+            display: none;
+          }
+        }
+      }
+      &.active {
+        .weui-cell__ft {
+          color: #09bb07;
+        }
+      }
+    }
+  }
+}
+
+.page.market {
+  &.flow.list {
+    .prod {
+      margin-top: 0;
+      &:before {
+        display: none;
+      }
+      &:first-child {
+        display: block;
+      }
+      .sun-prod {
+        margin-top: 0;
+        background: #f9f9f9;
+        &:after {
+          display: none;
+        }
+        .weui-cell__bd {
+          del {
+            font-size: 0.12rem;
+            color: #999;
+            margin-left: 0.1rem;
+          }
+          .flag {
+            @include border-radius(0.03rem);
+            color: #fff;
+            background: #09bb07;
+          }
+        }
+      }
+    }
+  }
+}

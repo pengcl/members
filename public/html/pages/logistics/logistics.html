@@ -1,0 +1,40 @@
+
+<div class="page logistics">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"物流信息"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <div class="weui-panel">
+            <div class="weui-panel__hd">
+                <span>运单号：</span><span ng-bind="logistics.logisticsNo"></span>
+                <span class="pull-right" ng-bind="logistics.state"></span></div>
+            <div class="weui-panel__bd">
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" ng-src="{{logisticsCompany.logo}}" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title"><span class="label">快递公司：</span><span ng-bind="logisticsCompany.companyName"></span></h4>
+                        <p class="weui-media-box__desc"><span class="label">官方电话：</span><span ng-bind="logisticsCompany.phoneNo"></span></p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="weui-panel">
+            <div class="weui-panel__hd">物流跟踪</div>
+            <div class="weui-panel__bd">
+                <div class="logistics-history weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells" ng-repeat="logisticsInfo in logistics.data" ng-class="{true:'arrived',false:''}[$index === 0]">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd"><ins class="logistics-history-item-flag"></ins></div>
+                            <div class="weui-cell__bd weui-cell_primary">
+                                <p ng-bind="logisticsInfo.context" style="font-size: 0.13rem">文字标题</p>
+                                <p class="weui-media-box__desc" style="font-size: 0.12rem" ng-bind="logisticsInfo.ftime"></p>
+                            </div>
+                            <span class="weui-cell__ft"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

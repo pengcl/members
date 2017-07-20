@@ -1,0 +1,357 @@
+.page.recipe {
+  background: $color-empty;
+  overflow: hidden;
+
+  .big-image {
+    .title {
+      text-align: center;
+      color: #fff;
+      font-size: 0.14rem;
+      img {
+        @include border-radius(100rem);
+      }
+    }
+  }
+
+  nav .bookmarked {
+    color: $color-primary !important;
+  }
+
+  .image-recipe {
+    @include transform(translate3d(0, 0, 0));
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 78%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, .3);
+      content: '';
+      opacity: 0;
+      z-index: 2;
+    }
+  }
+
+  .attribution-recipe {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    @include transform(translate3d(0, 0, 0));
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 2px 0;
+    min-height: 9em;
+    overflow: hidden;
+    padding-top: 1.25em;
+    padding-bottom: 4em;
+    text-align: center;
+    z-index: 1;
+
+    &:after {;
+      @include background-image(linear-gradient(top, rgba(255, 255, 255, .9), rgba(255, 255, 255, 1) 20%, $color-empty 100%));
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0.05rem;
+      left: 0;
+      @include transform(translate3d(0, 0, 0));
+      content: '';
+      min-height: 12em;
+      opacity: 1;
+      z-index: -1;
+    }
+
+    .title-recipe {
+      font-size: 0.22rem;
+      line-height: 0.26rem;
+      font-family: 'lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      @include transform(translateY(0));
+      @include backface-visibility(hidden);
+      margin-bottom: .05rem;
+      padding: 0 0.1rem;
+      width: 100%; // Needed for iOS animation
+    }
+
+    .metadata-wrapper {
+      @include transform(translate3d(0, 0, 0));
+      max-height: 10em;
+      opacity: 1;
+      overflow: hidden;
+    }
+
+    .description-recipe {
+      font-size: 0.14rem;
+      line-height: 0.2rem;
+      color: $color-well;
+      margin-bottom: .05rem;
+      padding: 0 0.1rem;
+
+      &:after {
+        content: '\2026';
+      }
+      // Ellipsis
+      &:empty {
+        display: none;
+      }
+    }
+
+    .source,
+    .time {
+      font-size: 0.1rem;
+      line-height: 0.16rem;
+      color: $color-medium;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .source {
+      font-family: 'lorabold', TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+      font-style: normal;
+      letter-spacing: .3em;
+      text-indent: .3em;
+      text-transform: uppercase;
+      padding-right: .025rem;
+    }
+
+    .time {
+      font-family: 'lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 700;
+      border-left: 1px solid $color-medium-rare;
+      padding-left: .05rem;
+    }
+  }
+
+  .btns-group {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    background: $color-medium-well;
+    z-index: 1;
+  }
+
+  .btn-tertiary {
+    display: block;
+
+    [class^="icon-"],
+    [class*=" icon-"] {
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 0;
+      line-height: 1;
+      vertical-align: text-top;
+    }
+  }
+
+  .content-scrollable {
+    top: 100%;
+    margin-top: -1px; // Fixes flicker from animations behind content-scrollable
+  }
+
+  .item-ingredient + .item-ingredient,
+  .item-direction + .item-direction {
+    border-top: 1px solid $color-raw-alt;
+  }
+
+  .item-ingredient,
+  .item-direction {
+    font-size: 14px;
+    line-height: 20px;
+    background: $color-empty;
+    padding: .75rem 1.25rem;
+  }
+
+  .list-directions {
+    counter-reset: ol-counter;
+    list-style-type: none;
+
+    .item-direction {
+      &:before {
+        color: $color-primary;
+        content: counter(ol-counter);
+        counter-increment: ol-counter;
+        display: inline-block;
+        float: left;
+        vertical-align: middle;
+        width: 1.5rem;
+        margin-right: .25rem;
+      }
+
+      .text {
+        display: block;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .list-directions + .btn-primary {
+    word-wrap: break-word;
+    word-break: break-all;
+    -ms-word-break: break-all;
+    word-break: break-word; // Non-standard for webkit
+    @include hyphens(auto);
+    white-space: normal;
+    width: 100%;
+  }
+
+  .ui.statistics {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    .statistic {
+      .value {
+        font-size: 2em !important;
+        sub {
+          font-size: 40%;
+          @include inline-block;
+          bottom: 0.01rem;
+          vertical-align: bottom;
+          margin-bottom: 0.02rem;
+        }
+      }
+      .label {
+        font-size: 0.8em;
+      }
+    }
+  }
+  .weui-panel {
+    .weui-media-box__desc {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+// Collapse end-state
+.page.recipe.make,
+.page.recipe.feed {
+  .content-scrollable {
+    min-height: 70%;
+    top: 30%;
+  }
+  .feed-scrollable {
+    @include transform(translate3d(100%, 0, 0));
+  }
+  .make-scrollable {
+    @include transform(translate3d(0, 0, 0));
+  }
+
+  .image-recipe:before {
+    opacity: 1;
+  }
+
+  .attribution-recipe {
+    bottom: 70%;
+    min-height: 30%;
+    cursor: pointer;
+    padding-top: .75em;
+
+    &:after {
+      opacity: .5;
+      top: 100%;
+    }
+  }
+  .title-recipe {
+    @include transform(translate3d(0, -30%, 0));
+    color: $color-empty;
+    margin-top: 50%;
+    width: 100%;
+  }
+
+  .metadata-wrapper {
+    @include transform(translate3d(0, 100%, 0));
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+// Collapse animation-specific styles
+$transition-time: 700ms;
+$easing: cubic-bezier(0.175, 0.885, 0.335, 1.05);
+.transition {
+  @include transition-property(all);
+  @include transition-duration($transition-time);
+  @include transition-timing-function(ease-out);
+}
+
+.page.recipe {
+  .image-recipe:before {
+    @include transition-property(all);
+    @include transition-duration($transition-time + 100);
+    @include transition-timing-function(ease-out);
+  }
+
+  .content-scrollable {
+    @include transform(translate3d(0, 0, 0));
+
+    @include transition-property(all);
+    @include transition-duration($transition-time);
+    @include transition-timing-function(ease-in);
+
+    @include backface-visibility(hidden);
+
+    &.instant {
+      @include transform(translate3d(0, 0, 0));
+      @include transition-property(top);
+      @include transition-duration($transition-time);
+      @include transition-timing-function(ease-in);
+    }
+    &.delayed {
+      @include transform(translate3d(0, 0, 0));
+      @include transition-property(top);
+      @include transition-duration($transition-time);
+      @include transition-timing-function(linear);
+    }
+
+    .attribution-recipe {
+      @include transform(translate3d(0, 0, 0));
+      @include transition-property(all);
+      @include transition-duration($transition-time);
+      @include transition-timing-function(ease-in);
+      @include backface-visibility(hidden);
+
+      &:after {
+        @include transition-property(all);
+        @include transition-duration($transition-time * 0.95);
+        @include transition-timing-function(ease-in);
+      }
+    }
+
+    .title-recipe {
+      @include transition-property(all);
+      @include transition-duration($transition-time * 0.75);
+      @include transition-timing-function(ease-in);
+    }
+
+    .metadata-wrapper {
+      @include transition-property(all);
+      @include transition-duration($transition-time * 0.5);
+      @include transition-timing-function(ease-in);
+    }
+  }
+
+  // Move the feed over the top when we are on it
+  .page.recipe.feed {
+    .feed-scrollable {
+      @include transform(translate3d(0, 0, 0));
+    }
+    .make-scrollable {
+      @include transform(translate3d(-100%, 0, 0));
+    }
+  }
+}

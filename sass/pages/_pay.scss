@@ -1,0 +1,12 @@
+.page.pay {
+  .pay-state {
+    .weui-media-box__hd {
+      .weui-icon_msg {
+        &:before {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

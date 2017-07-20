@@ -1,0 +1,46 @@
+.logistics-history {
+  .weui-cells {
+    &:after {
+      left: 0.45rem;
+    }
+    &:last-child {
+      &:after {
+        left: 0;
+      }
+    }
+    .weui-cell__hd {
+      width: 0.2rem;
+      margin-right: 0.08rem;
+      text-align: center;
+      &:before {
+        position: absolute;
+        content: " ";
+        width: 1px;
+        border-right: 1px solid #ccc;
+        top: 0;
+        bottom: 0;
+        left: 0.24rem;
+        @include scaleX(0.5);
+      }
+      .logistics-history-item-flag {
+        display: block;
+        margin: 0 auto;
+        @include border-radius(0.1rem);
+        width: 0.14rem;
+        height: 0.14rem;
+        background: #999;
+        position: relative;
+        z-index: 1;
+      }
+    }
+    &.arrived {
+      .weui-cell__hd {
+        .logistics-history-item-flag {
+          width: 0.2rem;
+          height: 0.2rem;
+          background: #09bb07;
+        }
+      }
+    }
+  }
+}

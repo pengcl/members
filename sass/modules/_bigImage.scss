@@ -1,0 +1,69 @@
+.big-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  position: relative;
+  height: 78%;
+  .title {
+    bottom: auto;
+    display: inline-block;
+    height: auto;
+    left: auto;
+    position: absolute;
+    right: 50%;
+    top: 45%;
+    @include transform( translate3d(50%, -50%, 0px));
+    width: 70%;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    font-size: 0.36rem;
+    line-height: 0.44rem;
+    img {
+      width: 100%;
+      display: block;
+      vertical-align: middle;
+    }
+  }
+  .hours {
+    font-size: 0.12rem;
+    line-height: 0.2rem;
+    position: absolute;
+    top:auto;
+    right: auto;
+    bottom: 20%;
+    left: 50%;
+    width: 100%;
+    @include transform( translate3d(-50%,0,0));
+    color: $color-empty;
+    text-align: center;
+    span,a {
+      @include inline-block;
+      vertical-align: baseline;
+    }
+    a {
+      color: $color-primary;
+    }
+    .title-callout {
+      letter-spacing: .3em;
+      text-indent: .3em;
+      text-transform: uppercase;
+      font-family: 'lato', "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 900;
+      font-size: 0.2rem;
+    }
+  }
+}
+
+.help {
+  .big-image {
+    @include background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("/templates/fenxiao/pages/platform/images/bg-about-640x540.jpg"));
+  }
+}
+
+.admin {
+  .big-image {
+    @include background-image(linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url("/templates/fenxiao/pages/platform/images/bg-about-640x540.jpg"));
+  }
+}

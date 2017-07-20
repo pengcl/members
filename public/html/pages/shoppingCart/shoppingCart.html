@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" id="ng-app" ng-app="app" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/pure/0.6.2/grids-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/utils/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <script type="text/javascript">
+        var tampTime = new Date().getTime();
+        //var ngVersion = "1.6.3";
+        document.write("<link rel='stylesheet' href='/css/1.0.0/app.min.css?" + tampTime + "'>");
+    </script>
+</head>
+
+<body>
+<div id="container" ng-class="{'menu-open':state.menu.show,'overlay-show':state.overlay.show}">
+    <app-menu></app-menu>
+    <div class="notifications" ng-class="{true:'slideInUp animated',false:''}[state.notification.show]">
+        <div class="notification">
+            <div class="title-notification"><i class="fa fa-spinner fa-pulse fa-fw margin-bottom"></i>{{state.notification.content}}
+            </div>
+        </div>
+    </div>
+    <app-overlay></app-overlay>
+    <div class="content-overlay" ng-click="state.menu.open(false);"></div>
+    <div id="content-container" class={{viewAniDeraciton}}>
+
+
+        <!-- page content start -->
+        <div class="page shopping-cart" ng-controller="choppingCartController">
+            <app-nav
+                    nav-item='{"menu":false,"back":true,"backUrl":"home","share":false,"comment":false,"class":"ng-hide","title":"我的购物车"}'></app-nav>
+            <div class="content-scrollable">
+
+                <!--<div class="weui-cells" style="margin-top: 0">
+                    <a class="weui-cell weui-cell_access" href="javascript:;">
+                        <div class="weui-cell__bd">
+                            <p>彭琛岚 15013262507</p>
+                            <p class="weui-media-box__desc">广东省广州市白云区黄庄村春石街6号12D</p>
+                        </div>
+                        <div class="weui-cell__ft">
+                        </div>
+                    </a>
+                </div>-->
+
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__hd">产品列表</div>
+                    <div class="weui-panel__bd">
+                        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="//m.360buyimg.com//mobilecms/s276x276_jfs/t3814/74/2044156489/71989/d87f523e/584c0f9fN614869f8.jpg!q70.jpg" alt="">
+                            </div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="price-title weui-media-box__title">爱伊格BY-S1 电热水龙头进水<span class="price">￥899</span></h4>
+                                <p class="weui-media-box__desc">即热式厨房快热式电热水器小厨宝下进水不锈钢加热速热水龙头 BY-S1带漏电保护插头</p>
+                            </div>
+                            <span class="del">删除</span>
+                        </a>
+                        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__hd">
+                                <img class="weui-media-box__thumb" src="//m.360buyimg.com//mobilecms/s276x276_jfs/t3814/74/2044156489/71989/d87f523e/584c0f9fN614869f8.jpg!q70.jpg" alt="">
+                            </div>
+                            <div class="weui-media-box__bd">
+                                <h4 class="price-title weui-media-box__title">爱伊格BY-S1 电热水龙头<span class="price">￥899</span></h4>
+                                <p class="weui-media-box__desc">即热式厨房快热式电热水器小厨宝下进水不锈钢加热速热水龙头 BY-S1带漏电保护插头</p>
+                            </div>
+                            <span class="del">删除</span>
+                        </a>
+                    </div>
+                    <div class="weui-panel__ft">
+                        <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link" style="color: #333">
+                            <div class="weui-cell__bd" style="text-align: right">￥899 + ￥899 = ￥{{899 * 2}}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- page content end -->
+
+
+    </div>
+    <app-toast></app-toast>
+    <app-dialog></app-dialog>
+    <app-share></app-share>
+    <app-picker input-data="inputPickerData" output-data="outputPickerData" is-show="isPickerShow"></app-picker>
+</div>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-resource.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-animate.min.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script>
+    document.write("<script src='/components/1.0.0/template.tpl.js?" + tampTime + "'><\/script>");
+    document.write("<script src='/components/1.0.0/public.min.js?" + tampTime + "'><\/script>");
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<div class="page pay">
+    <app-nav nav-item='{"menu":false,"back":true,"share":true,"comment":false,"class":"","title":"支付成功"}'></app-nav>
+
+    <div class="content-scrollable has-nav">
+        <div class="pay-state weui-panel">
+            <div class="weui-panel__bd">
+                <a class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <i style="font-size: 0.6rem" class="weui-icon-success weui-icon_msg"></i>
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">
+                            <span>支付成功！</span>
+                        </h4>
+                        <p class="weui-media-box__desc">正在为您安排发货，请耐心等待</p>
+                    </div>
+                </a>
+            </div>
+            <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_default" ui-sref="home">查询订单</a>
+                <!--<a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">继续购物</a>-->
+            </div>
+        </div>
+
+        <div class="share-container">
+            <div class="weui-cells__title">分享有礼</div>
+            <div class="share-list weui-cells">
+                <div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"></div>
+                    <div class="weui-cell__bd">
+                        <p><span style="vertical-align: middle">华为畅享6S 3GB+32GB</span></p>
+                    </div>
+                    <div class="weui-cell__ft"
+                         ng-click="setShareState({title:'华为畅享6S 3GB+32GB',desc:'全场限时特惠9.5折，最高降￥400！爆款机型12期免息分期！享更多优惠',summary:'',site:'',pic:'product/20161115/lbcektte5f5jtgleln4rfyhmh3p3.jpg',url:'http://app.yfq.cn/phs/lj/A/337'},'337','','')">
+                        立即分享
+                    </div>
+                </div>
+                <!--<div class="weui-cell weui-cell_access">
+                    <div class="weui-cell__hd"></div>
+                    <div class="weui-cell__bd">
+                        <p><span style="vertical-align: middle">99/月省内无限流量套餐</span></p>
+                    </div>
+                    <div class="weui-cell__ft"
+                         ng-click="setShareState('271','iPhone7 32GB','http://app.yfq.cn/phs/lj/A/271?gh=gh_test&activity=at_test&headCategory=yfqapp_ljzm_A','http://app.yfq.cn/phs/lj/A/271?gh=gh_test&activity=at_test&headCategory=yfqapp_ljzm_A','图片')">
+                        立即分享
+                    </div>
+                </div>-->
+            </div>
+            <div class="weui-cells__tips" ng-click="addOverlay()">什么是翼分期分享有礼？</div>
+        </div>
+    </div>
+</div>
+
+<div id="shareTips" style="display: none;">
+    <div class="overlay">
+        <a href="javascript:;" ng-click="state.overlay.open(false)" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading">
+            <div class="title-overlay">分享政策</div>
+            <div class="subtitle-overlay">这里是分享政策，分享政策，分享政策，分享政策分享政策分享政策分享政策</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter" ng-click="state.overlay.open(false)">我知道了</a>
+    </div>
+</div>

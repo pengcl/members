@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" id="ng-app" ng-app="app" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/pure/0.6.2/grids-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/utils/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <script type="text/javascript">
+        var tampTime = new Date().getTime();
+        //var ngVersion = "1.6.3";
+        document.write("<link rel='stylesheet' href='/css/1.0.0/app.min.css?" + tampTime + "'>");
+    </script>
+</head>
+
+<body ng-cloak>
+<div id="container" ng-class="{'menu-open':state.menu.show,'overlay-show':state.overlay.show}">
+    <app-menu></app-menu>
+    <div class="notifications" ng-class="{true:'slideInUp animated',false:''}[state.notification.show]">
+        <div class="notification">
+            <div class="title-notification"><i class="fa fa-spinner fa-pulse fa-fw margin-bottom"></i>{{state.notification.content}}
+            </div>
+        </div>
+    </div>
+    <app-overlay></app-overlay>
+    <div class="content-overlay" ng-click="state.menu.open(false);"></div>
+    <div id="content-container" class={{viewAniDeraciton}}>
+
+
+        <!-- page content start -->
+        <div class="page bill" ng-controller="billController">
+            <app-nav
+                    nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"余额明细"}'></app-nav>
+            <div class="content-scrollable has-nav">
+
+                <app-tabs tabs="tabs"></app-tabs>
+
+                <div class="weui-panel weui-panel_access">
+                    <div class="weui-panel__bd">
+                        <a href="/html/pages/account/bill/billDetails/billDetails.html" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">提现</h4>
+                                <p class="weui-media-box__desc">2017-06-20 16:04:25</p>
+                            </div>
+                            <div class="weui-media-box__ft" style="text-align: right">
+                                <h4 class="weui-media-box__title">-100.00</h4>
+                                <p class="weui-media-box__desc">0.00</p>
+                            </div>
+                        </a>
+                        <a href="/html/pages/account/bill/billDetails/billDetails.html" class="weui-media-box weui-media-box_appmsg">
+                            <div class="weui-media-box__bd">
+                                <h4 class="weui-media-box__title">充值</h4>
+                                <p class="weui-media-box__desc">2017-06-20 16:04:25</p>
+                            </div>
+                            <div class="weui-media-box__ft" style="text-align: right">
+                                <h4 class="weui-media-box__title">+100.00</h4>
+                                <p class="weui-media-box__desc">100.00</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- page content end -->
+
+
+    </div>
+    <app-toast></app-toast>
+    <app-dialog></app-dialog>
+    <app-share></app-share>
+</div>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-resource.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-animate.min.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script>
+    document.write("<script src='/components/1.0.0/template.tpl.js?" + tampTime + "'><\/script>");
+    document.write("<script src='/components/1.0.0/public.min.js?" + tampTime + "'><\/script>");
+</script>
+</body>
+</html>

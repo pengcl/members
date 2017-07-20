@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" id="ng-app" ng-app="app" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/pure/0.6.2/grids-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/utils/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <script type="text/javascript">
+        var tampTime = new Date().getTime();
+        //var ngVersion = "1.6.3";
+        document.write("<link rel='stylesheet' href='/css/1.0.0/app.min.css?" + tampTime + "'>");
+    </script>
+</head>
+
+<body>
+<div id="container" ng-class="{'menu-open':state.menu.show,'overlay-show':state.overlay.show}">
+    <app-menu></app-menu>
+    <div class="notifications" ng-class="{true:'slideInUp animated',false:''}[state.notification.show]">
+        <div class="notification">
+            <div class="title-notification"><i class="fa fa-spinner fa-pulse fa-fw margin-bottom"></i>{{state.notification.content}}
+            </div>
+        </div>
+    </div>
+    <app-overlay></app-overlay>
+    <div class="content-overlay" ng-click="state.menu.open(false);"></div>
+    <div id="content-container" class={{viewAniDeraciton}}>
+
+
+        <!-- page content start -->
+        <div class="page home" ng-controller="homeController">
+            <app-nav
+                    nav-item='{"menu":true,"back":false,"share":false,"comment":true,"class":"ng-hide","title":"会员中心"}'></app-nav>
+            <div class="content-scrollable" content-scrollable-scrolled>
+                <div class="owl-carousel" img-urls="imgUrls"></div>
+
+
+                <div class="products">
+                    <div class="weui-cells__title">体验产品</div>
+                    <ul class="item-list pure-g">
+                        <li class="list-item pure-u-1-2">
+                            <a href="javascript:;" class="item-box">
+                                <div class="item-img img-box">
+                                    <img src="//m.360buyimg.com//mobilecms/s276x276_jfs/t3295/345/6277904444/429877/eb97b3f7/58a27cb8N8a3e9c3c.jpg!q70.jpg">
+                                </div>
+                                <div class="item-title">漫奇包包女包单肩包印花手提包时尚斜挎小方包 蓝色</div>
+                                <div class="item-praise"></div>
+                            </a>
+                        </li>
+                        <li class="list-item pure-u-1-2">
+                            <a href="javascript:;" class="item-box">
+                                <div class="item-img img-box">
+                                    <img src="//m.360buyimg.com//mobilecms/s276x276_jfs/t6622/92/1027322541/118735/bbabfac5/594a2b65N92f0a883.jpg!q70.jpg">
+                                </div>
+                                <div class="item-title">花花公子贵宾 衬衫男2017 夏装新款时尚修身短袖衬衣男装GD B262-D17天蓝色 L(偏小一码)</div>
+                                <div class="item-praise"></div>
+                            </a>
+                        </li>
+                        <li class="list-item pure-u-1-2">
+                            <a href="javascript:;" class="item-box">
+                                <div class="item-img img-box">
+                                    <img src="//m.360buyimg.com//mobilecms/s276x276_jfs/t6229/84/2521844051/159772/23d0106a/596340b6N2d174b12.jpg!q70.jpg">
+                                </div>
+                                <div class="item-title">【京东超市】加加林 真丝眼罩 桑蚕丝眼罩 透气舒适睡眠眼罩 黑色</div>
+                                <div class="item-praise"></div>
+                            </a>
+                        </li>
+                        <li class="list-item pure-u-1-2">
+                            <a href="javascript:;" class="item-box">
+                                <div class="item-img img-box">
+                                    <img src="//m.360buyimg.com//mobilecms/s276x276_jfs/t6004/154/4087293344/138512/e3fd933e/595dd1e4N0ef1710f.jpg!q70.jpg">
+                                </div>
+                                <div class="item-title">小米(MI)Air 13.3英寸全金属超轻薄笔记本电脑(i5-6200U 8G 256G PCIE固态硬盘 940MX独显
+                                    FHD WIN10)银
+                                </div>
+                                <div class="item-praise"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="products">
+                    <div class="weui-cells__title">创客套餐</div>
+                    <ul class="item-list pure-g">
+                        <li class="list-item pure-u-1-2" ng-repeat="product in outputData">
+                            <a href="javascript:;" class="item-box">
+                                <div class="item-img img-box">
+                                    <img ng-src="{{product.img}}">
+                                </div>
+                                <div class="item-title" ng-bind="product.title"></div>
+                                <div class="item-praise"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <load-next input-data="products" output-data="outputData" input-data-tag="inputDataTag"
+                           page-size="5"></load-next>
+
+                <div style="height: 0.5rem"></div>
+            </div>
+            <app-footer-nav></app-footer-nav>
+        </div>
+        <!-- page content end -->
+
+
+    </div>
+    <app-toast></app-toast>
+    <app-dialog></app-dialog>
+    <app-share></app-share>
+    <app-picker input-data="inputPickerData" output-data="outputPickerData" is-show="isPickerShow"></app-picker>
+</div>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-resource.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-animate.min.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script>
+    document.write("<script src='/components/1.0.0/template.tpl.js?" + tampTime + "'><\/script>");
+    document.write("<script src='/components/1.0.0/public.min.js?" + tampTime + "'><\/script>");
+</script>
+</body>
+</html>

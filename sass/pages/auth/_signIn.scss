@@ -1,0 +1,25 @@
+@import "compass/css3";
+
+.page.login {
+  .big-image {
+    .title {
+      text-align: center;
+      color: #fff;
+      font-size: 0.14rem;
+      img {
+        @include border-radius(100rem);
+      }
+    }
+  }
+  .btn-primary {
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: auto;
+    @include transform(translate3d(0, 0, 0));
+    width: 100%;
+    @include box-sizing(border-box);
+  }
+}

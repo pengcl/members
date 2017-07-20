@@ -1,0 +1,42 @@
+<div class="page address">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":false,"class":"","title":"管理收货地址"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <form name="addressForm">
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" ui-sref="newAddress">
+                    <div class="weui-cell__bd">
+                        <p style="text-align: center;line-height: 3em"><i class="icon-add"></i> 添加新地址</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="weui-cells__title">我的收货地址</div>
+
+            <div class="weui-cells weui-cells_radio">
+                <div class="weui-cell weui-check__label" ng-repeat="address in userAddresses">
+                    <div class="weui-cell__bd">
+                        <p><span>{{address.name}}</span><span>{{address.mobile}}</span>
+                            <label class="weui-media-box__btn" for="x{{address.address.id}}"
+                                   ng-click="updateAddress(address,true,0)">[设为默认]</label>
+                            <span class="weui-media-box__btn" ng-click="updateAddress(address,false,1)">[删除]</span></p>
+                        <p class="weui-media-box__desc">{{address.address.receiverAddress}}</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <input class="weui-check" name="defaultAddress" id="x{{address.address.id}}"
+                               ng-checked="!!address.address.isDefault" ng-model="address.address.isDefault"
+                               type="radio">
+                        <span class="weui-icon-checked"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p style="text-align: center" ng-click="back()">< 返回</p>
+                    </div>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

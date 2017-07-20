@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" id="ng-app" ng-app="app" ng-controller="appController">
+<head>
+    <meta charset="utf-8">
+    <title ng-bind="title"></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//cdn.bootcss.com/pure/0.6.2/grids-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/utils/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/owl-carousel/1.32/owl.theme.min.css">
+    <script type="text/javascript">
+        var tampTime = new Date().getTime();
+        //var ngVersion = "1.6.3";
+        document.write("<link rel='stylesheet' href='/css/1.0.0/app.min.css?" + tampTime + "'>");
+    </script>
+</head>
+
+<body>
+<div id="container" ng-class="{'menu-open':state.menu.show,'overlay-show':state.overlay.show}">
+    <app-menu></app-menu>
+    <div class="notifications" ng-class="{true:'slideInUp animated',false:''}[state.notification.show]">
+        <div class="notification">
+            <div class="title-notification"><i class="fa fa-spinner fa-pulse fa-fw margin-bottom"></i>{{state.notification.content}}
+            </div>
+        </div>
+    </div>
+    <app-overlay></app-overlay>
+    <div class="content-overlay" ng-click="state.menu.open(false);"></div>
+    <div id="content-container" class={{viewAniDeraciton}}>
+
+
+        <!-- page content start -->
+        <div class="page order" ng-controller="orderListController">
+            <app-nav
+                    nav-item='{"menu":false,"back":true,"backUrl":"home","share":false,"comment":false,"class":"ng-hide","title":"我的订单"}'></app-nav>
+            <div class="content-scrollable">
+
+                <div class="weui-tab">
+                    <div class="weui-navbar">
+                        <a href="#/orderList/" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '']">
+                            全部
+                        </a>
+                        <a href="#/orderList/0" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '0']">
+                            待支付
+                        </a>
+                        <a href="#/orderList/1" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '1']">
+                            待发货
+                        </a>
+                        <a href="#/orderList/2" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '2']">
+                            已发货
+                        </a>
+                        <a href="#/orderList/3" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '3']">
+                            受理中
+                        </a>
+                        <a href="#/orderList/4" class="weui-navbar__item"
+                           ng-class="{true:'weui-bar__item_on',false:''}[orderStatus == '4']">
+                            已完成
+                        </a>
+                    </div>
+                    <div class="goods-list weui-tab__panel">
+                        <div class="page-loading" ng-show="!outputData"></div>
+                        <order-list-item ng-show="outputData" ng-repeat="orderListItem in outputData"
+                                         order-list-item="orderListItem"></order-list-item>
+                        <load-next input-data="orderList" output-data="outputData" input-data-tag="inputDataTag"
+                                   page-size="5"></load-next>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- page content end -->
+
+
+    </div>
+    <app-toast></app-toast>
+    <app-dialog></app-dialog>
+    <app-share></app-share>
+    <app-picker input-data="inputPickerData" output-data="outputPickerData" is-show="isPickerShow"></app-picker>
+</div>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-resource.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-cookies.min.js"></script>
+<script src="//cdn.bootcss.com/angular.js/1.4.12/angular-animate.min.js"></script>
+<script src="//apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.bootcss.com/owl-carousel/1.32/owl.carousel.min.js" type="text/javascript"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script>
+    document.write("<script src='/components/1.0.0/template.tpl.js?" + tampTime + "'><\/script>");
+    document.write("<script src='/components/1.0.0/public.min.js?" + tampTime + "'><\/script>");
+</script>
+</body>
+</html>

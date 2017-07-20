@@ -1,0 +1,83 @@
+<div class="page market flow home">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <form id="salesForm" name="accountForm" style="background: #fff;padding-bottom: 0.2rem">
+            <div id="rechargeNo" class="weui-cells" ng-class="{true:'active',false:''}[!!mobile]">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input id="mobile" ng-model="mobile" name="mobile"
+                               ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="11" class="weui-input"
+                               placeholder="请输入手机号码" required/>
+                    </div>
+                    <div class="weui-cell__ft">
+                        <i class="icon-user"></i>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <span ng-bind="listData.area_operator" ng-show="!!mobile"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="listData">
+                <div class="weui-cells__title">充流量</div>
+
+                <div class="item-lists weui-flex pdw">
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="pay(mobile, listData.data[0].productId, listData.data[0].regionProducts[0].productFlowPriceId, listData.area_operator, 'flowBag', gh)">
+                            <div class="title" ng-bind="listData.data[0].productName"></div>
+                            <div class="disc">售价<span ng-bind="listData.data[0].regionProducts[0].salesPrice | number : 2"></span>元</div>
+                        </div>
+                    </div>
+
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ng-click="pay(mobile, listData.data[0].productId, listData.data[0].regionProducts[0].productFlowPriceId, listData.area_operator, 'flowBag', gh)">
+                            <div class="title" ng-bind="listData.data[1].productName"></div>
+                            <div class="disc">售价<span ng-bind="listData.data[1].regionProducts[0].salesPrice | number : 2"></span>元</div>
+                        </div>
+                    </div>
+
+                    <div class="list-item weui-flex__item" ng-class="{true:'',false:'disabled'}[!!mobile]">
+                        <div class="item-box" ui-sref="marketFlowList({mobile:mobile})">
+                            更多流量包
+                            <!--<div class="title">更多流量包</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="weui-cells__tips" style="text-align: right" ng-click="showOverlay()">常见问题？</div>
+    </div>
+
+</div>
+
+<div id="flowTips" style="display: none;">
+    <div class="overlay">
+        <a href="javascript:;" ng-click="state.overlay.open(false)" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading">
+            <div class="title-overlay">常见问题</div>
+            <div class="subtitle-overlay">这里是常见问题，还没有常见问题文案</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter" ng-click="state.overlay.open(false)">我知道了</a>
+    </div>
+</div>
+
+<div id="paySuccess" style="display: none;">
+    <div class="overlay">
+        <a href="javascript:;" ng-click="state.overlay.open(false)" class="js-close-overlay overlay-dismiss"><span
+                class="icon-cross"></span></a>
+
+        <div class="wrapper-heading" style="top: 30%;">
+            <div class="weui-msg__icon-area" style="margin-bottom: 0.1rem"><i class="weui-icon-success weui-icon_msg"></i></div>
+            <div class="subtitle-overlay">支付成功</div>
+            <div class="subtitle-overlay" style="margin-top: 0.2rem">手机充值</div>
+            <div class="title-overlay" style="font-weight: normal"><span style="font-size: 50%">￥</span>99.80</div>
+        </div>
+
+        <a href="javascript:;" class="js-signin btn-twitter" style="background: #09BB07" ng-click="state.overlay.open(false)">我知道了</a>
+    </div>
+</div>

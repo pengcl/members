@@ -1,0 +1,23 @@
+<div class="page account">
+    <app-nav nav-item='{"menu":false,"back":true,"share":false,"comment":true,"class":"","title":"充值"}'></app-nav>
+    <div class="content-scrollable has-nav">
+        <form id="accountForm" name="accountForm">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <input id="amount" ng-model="amount" name="amount" ng-pattern="/^[0-9]*$/" pattern="[0-9]*" ng-minlength="1" class="weui-input" placeholder="请输入充值金额" type="number" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cells">
+                <a class="weui-cell weui-cell_access" ng-click="recharge(!accountForm.$invalid,appAuth.receiverMobile,amount)" ng-class="{true:'disabled',false:''}[accountForm.$invalid]">
+                    <div class="weui-cell__bd">
+                        <p style="text-align: center">确定</p>
+                    </div>
+                </a>
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+* {
+  @include box-sizing(border-box);
+}
+.pull-right {
+  float: right !important;
+}
+
+em {
+  color: $color-primary;
+  font-style: normal;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.pdw {
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-start {
+  clip: rect(0, auto, auto, 0);
+  -ms-zoom: 1.0001;
+}
+
+.ng-animate-active {
+  clip: rect(-1px, auto, auto, 0);
+  -ms-zoom: 1;
+}
+
+.disabled {
+  opacity: .5;
+}

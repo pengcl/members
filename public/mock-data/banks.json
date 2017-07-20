@@ -1,0 +1,16 @@
+[
+  {
+    "accountId":"2",
+    "bankTag":"ICBC",
+    "accountName":"彭琛岚",
+    "bankName":"工商银行",
+    "bankNo":"62222023602054602587"
+  },
+  {
+    "accountId":"3",
+    "bankTag":"BOC",
+    "accountName":"彭琛岚",
+    "bankName":"中国银行",
+    "bankNo":"62222023602054601111"
+  }
+]

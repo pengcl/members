@@ -1,0 +1,145 @@
+/*
+ * animations css stylesheet
+ */
+$transitionDuration : 500ms;
+
+.view-frame {
+  background: #fff;
+}
+
+.view-frame.ng-leave {
+  @include transition-property(all);
+  @include transition-duration($transitionDuration);
+  @include transition-timing-function(ease-out);
+  @include transform(translate3d(0, 0, 0));
+  z-index: 99;
+}
+
+.view-frame.ng-leave-active {
+  @include transform(translate3d(-100%, 0, 0));
+}
+
+.view-frame.ng-enter {
+  @include transition-property(all);
+  @include transition-duration($transitionDuration);
+  @include transition-timing-function(ease-out);
+  @include transform(translate3d(100%, 0, 0));
+  z-index: 100;
+}
+
+.view-frame.ng-enter-active {
+  @include transform(translate3d(0, 0, 0));
+}
+
+//back
+.ng-back .view-frame.ng-leave {
+  @include transition-property(all);
+  @include transition-duration($transitionDuration);
+  @include transition-timing-function(ease-out);
+  @include transform(translate3d(0, 0, 0));
+  z-index: 99;
+}
+
+.ng-back .view-frame.ng-leave-active {
+  @include transform(translate3d(100%, 0, 0));
+}
+
+.ng-back .view-frame.ng-enter {
+  @include transition-property(all);
+  @include transition-duration($transitionDuration);
+  @include transition-timing-function(ease-out);
+  @include transform(translate3d(-100%, 0, 0));
+  z-index: 100;
+}
+
+.ng-back .view-frame.ng-enter-active {
+  @include transform(translate3d(0, 0, 0));
+}
+
+.overlay {
+  @include transition-property(all);
+  @include transition-duration($transitionDuration);
+  &.ng-enter {
+    @include transition-timing-function(ease-in);
+    @include transform(translate3d(0, 0, 0));
+  }
+  &.ng-enter-active {
+    @include transition-timing-function(ease-in);
+    @include transform(translate3d(0, 0, 0));
+  }
+}
+
+/*
+.view-frame {
+  @include transition-duration(500ms);
+  @include transition-timing-function(ease-out);
+  @include transform(translateX(0));
+}
+
+.view-frame.ng-enter {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.view-frame.ng-enter.ng-enter-active, .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.ng-back .view-frame.ng-enter.ng-enter-active, .ng-back .view-frame.ng-leave {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+.ng-back .view-frame.ng-leave.ng-leave-active {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}*/
+
+
+@-moz-keyframes text-input-animate {
+  0% {
+    background-size: 0% 2px, 100% 2px;
+  }
+  100% {
+    background-size: 100% 2px, 100% 2px;
+  }
+}
+@-webkit-keyframes text-input-animate {
+  0% {
+    -webkit-background-size: 0% 2px, 100% 2px;
+    background-size: 0% 2px, 100% 2px;
+  }
+  100% {
+    -webkit-background-size: 100% 2px, 100% 2px;
+    background-size: 100% 2px, 100% 2px;
+  }
+}
+@-o-keyframes text-input-animate {
+  0% {
+    background-size: 0% 2px, 100% 2px;
+  }
+  100% {
+    background-size: 100% 2px, 100% 2px;
+  }
+}
+@keyframes text-input-animate {
+  0% {
+    -webkit-background-size: 0% 2px, 100% 2px;
+    background-size: 0% 2px, 100% 2px;
+  }
+  100% {
+    -webkit-background-size: 100% 2px, 100% 2px;
+    background-size: 100% 2px, 100% 2px;
+  }
+}
